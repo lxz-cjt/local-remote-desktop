@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Local Remote</string>
+    <string name="remote_desktop">Remote desktop</string>
+    <string name="hint_ip">Computer IPv4</string>
+    <string name="hint_port">Port</string>
+    <string name="hint_pin">6-digit PIN</string>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="right_click">Right click</string>
+    <string name="scroll_up">Scroll up</string>
+    <string name="scroll_down">Scroll down</string>
+    <string name="status_connecting">Connecting…</string>
+    <string name="status_disconnected">Disconnected</string>
+    <string name="error_ip_required">Enter the computer IPv4 address.</string>
+    <string name="error_port">Port must be between 1024 and 65534.</string>
+    <string name="error_prefix">Error: %1$s</string>
+    <string name="fingerprint_title">Trust this computer?</string>
+    <string name="fingerprint_changed">WARNING: the certificate changed since the last connection. Remove the old pairing only if you expected this change.\n\n</string>
+    <string name="fingerprint_message">%1$sCompare this SHA-256 fingerprint with the Windows server console before continuing:\n\n%2$s</string>
+    <string name="fingerprint_trust">Trust and connect</string>
+    <string name="fingerprint_reject">Cancel</string>
+</resources>

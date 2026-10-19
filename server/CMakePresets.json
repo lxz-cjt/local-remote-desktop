@@ -1,0 +1,44 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "windows-vcpkg",
+      "displayName": "Windows x64 with vcpkg",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/.build/vcpkg",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows"
+      }
+    },
+    {
+      "name": "windows-local",
+      "displayName": "Windows x64 with local dependencies",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/.build/local",
+      "cacheVariables": {
+        "FFMPEG_ROOT": "$env{FFMPEG_ROOT}",
+        "OPENSSL_ROOT_DIR": "$env{OPENSSL_ROOT_DIR}"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "vcpkg-release",
+      "configurePreset": "windows-vcpkg",
+      "configuration": "Release"
+    },
+    {
+      "name": "local-release",
+      "configurePreset": "windows-local",
+      "configuration": "Release"
+    }
+  ]
+}

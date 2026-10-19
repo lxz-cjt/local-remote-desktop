@@ -1,0 +1,63 @@
+# Local-only prototype; not part of the public repository
+/python-server/
+
+# CMake and Visual Studio
+.build/
+build/
+out/
+.vs/
+.vscode/
+CMakeUserPresets.json
+*.user
+*.suo
+*.opensdf
+*.sdf
+*.vc.db
+*.vc.opendb
+
+# Native binaries and runtime data
+*.exe
+*.dll
+*.lib
+*.exp
+*.pdb
+*.ilk
+*.obj
+*.o
+*.pyc
+*.pyo
+__pycache__/
+runtime/
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.der
+*.csr
+
+# Android and Gradle
+.gradle/
+.idea/
+local.properties
+*.iml
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Logs, crash dumps and OS metadata
+*.log
+*.dmp
+*.tmp
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local CI dependencies
+/.ci/

@@ -1,0 +1,44 @@
+name: Windows Server
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-server-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  VCPKG_ROOT: ${{ github.workspace }}/.ci/vcpkg
+
+jobs:
+  release:
+    runs-on: windows-2022
+    timeout-minutes: 90
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Check out pinned vcpkg
+        uses: actions/checkout@v4
+        with:
+          repository: microsoft/vcpkg
+          ref: 664933b8d385dfc01f4e0cdff4c7c74e71f6a740
+          path: .ci/vcpkg
+          persist-credentials: false
+
+      - name: Bootstrap vcpkg
+        shell: cmd
+        run: .ci\vcpkg\bootstrap-vcpkg.bat -disableMetrics
+
+      - name: Configure Release
+        working-directory: server
+        run: cmake --preset windows-vcpkg
+
+      - name: Build Release
+        working-directory: server
+        run: cmake --build --preset vcpkg-release --parallel 2
